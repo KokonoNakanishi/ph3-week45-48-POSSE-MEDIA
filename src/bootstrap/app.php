@@ -12,7 +12,10 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
-        //
+        // week47 未ログインのときの飛ばし先を、URLによって分ける
+        $middleware->redirectGuestsTo(fn (Request $request) =>
+            $request->is('admin', 'admin/*') ? route('admin.login') : route('login')
+        );
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         $exceptions->shouldRenderJsonWhen(

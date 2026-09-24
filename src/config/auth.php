@@ -37,11 +37,16 @@ return [
     |
     */
 
+    // week47 管理者用ログイン
     'guards' => [
         'web' => [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'admin' => [
+        'driver' => 'session',
+        'provider' => 'admins',
+    ],
     ],
 
     /*
@@ -65,6 +70,10 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => env('AUTH_MODEL', User::class),
+        ],
+        'admins' => [
+        'driver' => 'eloquent',
+        'model' => App\Models\Admin::class,
         ],
 
         // 'users' => [
