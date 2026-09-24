@@ -1,5 +1,10 @@
 @import 'tailwindcss';
 
+@theme {
+    --color-brand: #3d5a80;
+    --color-brand-dark: #2c4260;
+}
+
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
 
