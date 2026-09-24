@@ -3,6 +3,10 @@
 @section('title', '記事を投稿 | POSSE MEDIA')
 
 @section('content')
+    <a href="{{ route('posts.index') }}"
+            class="inline-flex items-center gap-1 mb-4 text-sm text-cyan-900 hover:underline">
+            ← 記事一覧に戻る
+    </a>
     <h1 class="text-2xl font-bold mb-8">記事を投稿</h1>
 
     <form method="POST" action="{{ route('posts.store') }}" enctype="multipart/form-data"
