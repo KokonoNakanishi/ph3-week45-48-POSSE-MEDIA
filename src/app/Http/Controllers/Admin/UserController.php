@@ -20,6 +20,7 @@ class UserController extends Controller
     {
         DB::transaction(function () use ($user) {
             $user->posts()->delete(); // その人の記事をまとめて論理削除
+            $user->comments()->delete(); 
             $user->delete();          // ユーザーを論理削除
         });
 
