@@ -7,6 +7,7 @@ use App\Http\Controllers\PostController;
 // 管理者用ログイン機能
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\LoginController as AdminLoginController;
+use App\Http\Controllers\Admin\UserController;
 
 
 // ログイン画面を表示、ログイン処理、ログアウト
@@ -45,5 +46,8 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::middleware('auth:admin')->group(function () {
         Route::post('/logout', [AdminLoginController::class, 'destroy'])->name('logout');
         Route::get('/admins', [AdminController::class, 'index'])->name('admins.index');
+        Route::get('/users', [UserController::class, 'index'])->name('users.index');              
+        Route::delete('/users/{user}', [UserController::class, 'destroy'])->name('users.destroy');
     });
+    
 });

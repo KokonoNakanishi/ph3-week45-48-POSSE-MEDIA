@@ -14,6 +14,7 @@
                 @auth('admin')
                     <nav class="flex gap-4 text-sm">
                         <a href="{{ route('admin.admins.index') }}" class="hover:underline">管理者一覧</a>
+                        <a href="{{ route('admin.users.index') }}" class="hover:underline">ユーザー一覧</a>
                     </nav>
                 @endauth
             </div>
