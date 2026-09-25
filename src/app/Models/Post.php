@@ -21,4 +21,9 @@ class Post extends Model
     {
         return $this->belongsTo(User::class);
     }
+    // 記事はたくさんのコメントを持つ(古い順)
+    public function comments()
+    {
+        return $this->hasMany(Comment::class)->oldest();
+    }
 }

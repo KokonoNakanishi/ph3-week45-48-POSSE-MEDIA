@@ -64,8 +64,9 @@ class PostController extends Controller
         // ルートモデルバインディング：そのIDの記事を自動でDBから探して $post に入れてくれる
             public function show(Post $post)
                 {
-                    $post->load('user');
+                    $post->load(['user', 'comments.user']);
                     return view('posts.show', compact('post'));
+
                 }
         // 記事削除(論理削除)
             public function destroy(Post $post)
